@@ -1,17 +1,14 @@
-import { CategoryRepositories } from "../respositories/categoriesRepositories";
-import { IcategoriesRepository } from "../respositories/ICategoryRepository";
+import { CategoryRepositories } from "../../respositories/implementations/categoriesRepositories";
 
 interface IRequest {
   name: string;
   description: string;
 }
 
-class CreateCategoryServices {
-
+class CreateCategoryUseCase {
   constructor( private categoriesRepository: CategoryRepositories){}
 
   execute({name, description}: IRequest): void{
-
     const categoryAlreadyExists = this.categoriesRepository.findByName(name);
 
     if(categoryAlreadyExists){
@@ -22,4 +19,4 @@ class CreateCategoryServices {
   }
 }
 
-export { CreateCategoryServices }
+export { CreateCategoryUseCase }

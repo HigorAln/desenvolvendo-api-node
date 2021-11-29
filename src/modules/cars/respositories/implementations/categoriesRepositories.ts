@@ -1,11 +1,22 @@
-import { CategoryProps } from '../model/Category'
-import { IcategoriesRepository, ICreateCategoryDTO } from './ICategoryRepository';
+import { CategoryProps } from '../../model/Category'
+import { ICreateCategoryDTO } from '../ICategoryRepository';
 
 class CategoryRepositories {
   private categories: CategoryProps[]; // declarando que esse categories que seria o banco de dados so e acessivel no CategoriRepositores
 
-  constructor() {
+  private static INSTANCE: CategoryRepositories;
+
+  private constructor() {
     this.categories = []; // atribuindo um valor ao categories
+  }
+
+  // ele quando cria uma categoria, entra qui dentro e ele retorna sem nada... apartir daqui ele cria uma nova com o new
+  // apos isso quando pede pra listar, ele ver que ja existe uma, e retorna a existente, em vez de criar uma nova
+  public static getInstance(): CategoryRepositories {
+    if(!CategoryRepositories.INSTANCE){
+      CategoryRepositories.INSTANCE = new CategoryRepositories();
+    }
+    return CategoryRepositories.INSTANCE;
   }
 
   create({ description, name}: ICreateCategoryDTO): void {
