@@ -1,9 +1,5 @@
 import { CategoryProps } from '../model/Category'
-
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
+import { IcategoriesRepository, ICreateCategoryDTO } from './ICategoryRepository';
 
 class CategoryRepositories {
   private categories: CategoryProps[]; // declarando que esse categories que seria o banco de dados so e acessivel no CategoriRepositores
