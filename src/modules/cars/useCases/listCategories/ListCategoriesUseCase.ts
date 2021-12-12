@@ -1,4 +1,4 @@
-import { CategoryProps } from "../../model/Category";
+import { CategoryProps } from "../../entities/Category";
 import { CategoryRepositories } from "../../respositories/implementations/categoriesRepositories";
 
 

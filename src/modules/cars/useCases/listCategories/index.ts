@@ -2,7 +2,7 @@ import { CategoryRepositories } from "../../respositories/implementations/catego
 import { ListCategoriesController } from "./ListCategoriesController";
 import { ListCategoriesUseCase } from "./ListCategoriesUseCase";
 
-const categoryRepositories = CategoryRepositories.getInstance();
+const categoryRepositories = null;
 const listCategoriesUseCase = new ListCategoriesUseCase(categoryRepositories)
 const listCategoriesController = new ListCategoriesController(listCategoriesUseCase)
 
